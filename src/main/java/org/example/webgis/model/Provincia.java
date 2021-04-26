@@ -155,6 +155,18 @@ public class Provincia {
         final Map<String, Object> map = new HashMap<String, Object>();
         map.put("id", this.getId());
         map.put("codRip", this.getCodRip());
+        map.put("codReg", this.getCodReg());
+        map.put("codProv", this.getCodProv());
+        map.put("codCm", this.getCodCm());
+        map.put("codUts", this.getCodUts());
+        map.put("denProv", this.getDenProv());
+        map.put("denCm", this.getDenCm());
+        map.put("denUts", this.getDenUts());
+        map.put("sigla", this.getSigla());
+        map.put("tipoUts", this.getTipoUts());
+        map.put("shapeArea", this.getShapeArea());
+        map.put("shapeLen", this.getShapeLen());
+        
         // TODO complete this mapping
         return map;
     }

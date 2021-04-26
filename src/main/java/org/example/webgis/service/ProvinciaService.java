@@ -22,6 +22,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
 public class ProvinciaService {
+	
     private ProvinciaRepository provinciaRepository;
     
     public ProvinciaRepository getProvinciaRepository() {
@@ -39,7 +40,7 @@ public class ProvinciaService {
     
     public String listProvinceGeojson() {
         final FeatureCollection featureCollection = new FeatureCollection();
-        listProvince().stream().forEach(p -> {
+        getProvinciaRepository().findAll().stream().forEach(p -> {
             final Feature feature = new Feature();
             feature.setId(p.getId().toString());
             feature.setProperties(p.getPropertyMap());
@@ -49,7 +50,7 @@ public class ProvinciaService {
         try {
             return new ObjectMapper().writeValueAsString(featureCollection);
         } catch (JsonProcessingException e) {
-            return null;
+            return e.getMessage();
         }
         
     }
